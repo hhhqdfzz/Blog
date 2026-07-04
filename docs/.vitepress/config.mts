@@ -61,7 +61,7 @@ function autoSidebar(dir: string): { text: string; items: Array<{ text: string; 
 
 export default defineConfig({
   title: "韩会会-QDFZZ. 的博客",
-  description: "专注光学、计算机等领域",
+  description: "想写啥就写啥。",
   cleanUrls: true, // 去掉网页地址栏的 .html 后缀
   lastUpdated: true, // 显示最后更新时间
   base: '/blog/', // 部署到 https://<你的用户名>.github.io/<仓库名>/。默认为空

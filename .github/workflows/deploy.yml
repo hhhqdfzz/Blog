@@ -38,6 +38,12 @@ jobs:
 
       - name: Build with VitePress
         run: npm run docs:build # 确保你的 package.json 里有这个打包命令
+        env:
+          # 从 GitHub Secrets 注入变量
+          VITE_ALGOLIA_APP_ID: ${{ secrets.VITE_ALGOLIA_APP_ID }}
+          VITE_ALGOLIA_API_KEY: ${{ secrets.VITE_ALGOLIA_API_KEY }}
+          VITE_ALGOLIA_INDEX_NAME: ${{ secrets.VITE_ALGOLIA_INDEX_NAME }}
+          ALGOLIA_ADMIN_API_KEY: ${{ secrets.ALGOLIA_ADMIN_API_KEY }}
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
