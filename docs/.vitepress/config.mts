@@ -7,6 +7,12 @@ import path from 'path'
 // ── 手动读取 .env（配置文件运行在 Node.js 中，import.meta.env 不可用） ──
 function loadEnv(filepath: string): Record<string, string> {
   const env: Record<string, string> = {}
+
+  // 👉 加一行判断：如果文件不存在，直接返回空对象，或者去读系统的 process.env 作为备用
+  if (!fs.existsSync(filepath)) {
+    return process.env as Record<string, string>; 
+  }
+  
   for (const line of fs.readFileSync(filepath, 'utf-8').split('\n')) {
     const trimmed = line.trim()
     if (!trimmed || trimmed.startsWith('#')) continue

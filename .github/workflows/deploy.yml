@@ -37,19 +37,27 @@ jobs:
         run: npm install # 或者 npm ci
 
       - name: Build with VitePress
-        run: npm run docs:build # 确保你的 package.json 里有这个打包命令
         env:
-          # 从 GitHub Secrets 注入变量
           VITE_ALGOLIA_APP_ID: ${{ secrets.VITE_ALGOLIA_APP_ID }}
           VITE_ALGOLIA_API_KEY: ${{ secrets.VITE_ALGOLIA_API_KEY }}
           VITE_ALGOLIA_INDEX_NAME: ${{ secrets.VITE_ALGOLIA_INDEX_NAME }}
           ALGOLIA_ADMIN_API_KEY: ${{ secrets.ALGOLIA_ADMIN_API_KEY }}
+				# run 步骤
+				# 从 GitHub Secrets 注入变量
+				# 确保 package.json 定义了 docs:build 命令
+        run: |
+          echo "VITE_ALGOLIA_APP_ID=${VITE_ALGOLIA_APP_ID}" > .env
+          echo "VITE_ALGOLIA_API_KEY=${VITE_ALGOLIA_API_KEY}" >> .env
+          echo "VITE_ALGOLIA_INDEX_NAME=${VITE_ALGOLIA_INDEX_NAME}" >> .env
+          echo "ALGOLIA_ADMIN_API_KEY=${ALGOLIA_ADMIN_API_KEY}" >> .env
+          npm run docs:build
+
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
           path: .vitepress/dist # Vitepress 默认打包输出的路径
-
+				
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
