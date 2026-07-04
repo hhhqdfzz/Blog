@@ -41,6 +41,19 @@ mv ~/视频 ~/Videos
 ```
 重新登入系统即可。
 
+#### 可以尝试的方法
+```bash
+export LANG=en_US.UTF-8 # 或 export LANGUAGE=en_US.UTF-8
+xdg-user-dirs-gtk-update
+```
+会弹出一个窗口，询问是否更新 XDG 用户目录。不要勾选“Don't ask me this again”，否则后续再想将更改 XDG 用户目录的语言时，该方法会失效。
+
+![alt text](assets/xdguserdirs-1.png)
+
+但如果不勾选的话，每次登入系统都会弹出这个窗口，问你要不要把目录改回中文，为了防止这一点，请将 `/etc/xdg/user-dirs.conf` 中的 `enabled` 的值设为 `False`。
+
+该方法的好处是不用手动给目录重命名，本质上就是修改了 `~/.config/user-dirs.dirs` 和 `~/.config/user-dirs.locale` 文件。
+
 ### 系统级
 对目前存在的其他用户是不可以的，不过可以对新用户生效。
 如果你进行了上述的用户级设置，可以：

@@ -107,9 +107,6 @@ VBoxManage modifymedium disk to_shrink_dynamic.vdi --compact
 
 首先，你需要阅读 [Clash_Verge 一节](Clash_Verge.md)，了解 Clash_Verge 这类代理工具实现 VPN 的工作原理。根据 [Clash_Verge 一节](Clash_Verge.md)，我们需要获取宿主机的 IP 地址和端口号，然后填入虚拟机的网络代理设置中。端口号容易解决，在宿主机上的代理工具或网络代理设置中找。下面介绍获取IP地址的方法。
 
-> 注意，有的虚拟机上的系统对“忽略的主机”这一项的默认值不完整，应为：
-
-
 ::: danger 免责声明
 科学上网、VPN等技术只是为了访问网站的方便，若因查看本文档而利用这一点从事任何违法活动，笔者不承担任何责任！！！
 :::
