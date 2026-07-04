@@ -3,3 +3,5 @@ node_modules/
 dist/
 docs/.vitepress/cache/
 docs/.vitepress/config_*.mts
+.claude/
+CLAUDE.md
