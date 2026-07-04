@@ -53,7 +53,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: .vitepress/dist # Vitepress 默认打包输出的路径
+          path: docs/.vitepress/dist # Vitepress 默认打包输出的路径
 
       - name: Deploy to GitHub Pages
         id: deployment
