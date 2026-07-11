@@ -1,5 +1,5 @@
 ---
-title: Windows 中 WPS 抢默认方式解决办法
+title: WPS
 alias: [wps, wps-office]
 os: [Windows, Linux, macOS]
 category: [Office]
@@ -20,6 +20,7 @@ description: 金山办公软件
 
 ---
 
+## Windows 中 WPS 抢默认方式解决办法
 https://zhuanlan.zhihu.com/p/693754129
 
 其中有一条神评论，解决了找不到WPS配置工具的问题，如下。
